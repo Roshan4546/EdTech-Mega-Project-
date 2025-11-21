@@ -1,1 +1,1 @@
-# EdTech-project-Mega-Project-
+# EdTech-Mega-Project-

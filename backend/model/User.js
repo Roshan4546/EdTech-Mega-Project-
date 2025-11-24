@@ -33,8 +33,8 @@ const userSchema = new mongoose.Schema(
         },
 
         additionalDetail: {
-            type: mongoose.Schema.Types.ObjectId, // ! storing User's ID
-            ref: "Profile", // ! referring to User model
+            type: mongoose.Schema.Types.ObjectId, // ! storing profile's ID
+            ref: "Profile", // ! referring to profile model
             required: true,
         },
 
@@ -56,6 +56,12 @@ const userSchema = new mongoose.Schema(
                 ref: "CourseProgress",
             }
         ],
+        token: {
+            type : String,
+        },
+        resetPasswordExpires: {
+            type : Date,
+        }
     },
     {
         timestamps: true,

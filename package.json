@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "cloudinary": "^2.8.0",
+    "crypto": "^1.0.1"
+  }
+}

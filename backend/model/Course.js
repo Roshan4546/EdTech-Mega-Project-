@@ -45,13 +45,12 @@ const courseSchema = new mongoose.Schema({
         required: true
     },
 
-    // Multiple tags
-    tag: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Tag",
-        }
-    ],
+    category: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Category",
+        required: true
+    },
+
 
     studentEnrolled: [
         {

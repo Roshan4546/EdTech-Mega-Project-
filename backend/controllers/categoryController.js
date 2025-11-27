@@ -1,7 +1,7 @@
-const Tag = require("../model/Tags");
+const Category = require("../model/Category");
 
-// CREATE TAG
-exports.createTag = async (req, res) => {
+// CREATE CATEGORY
+exports.createCategory = async (req, res) => {
     try {
         const { name, description } = req.body;
 
@@ -13,25 +13,25 @@ exports.createTag = async (req, res) => {
             });
         }
 
-        // Check duplicate tag
-        const existingTag = await Tag.findOne({ name });
-        if (existingTag) {
+        // Check duplicate category
+        const existingCategory = await Category.findOne({ name });
+        if (existingCategory) {
             return res.status(400).json({
                 success: false,
-                message: "Tag already exists.",
+                message: "Category already exists.",
             });
         }
 
-        // Create a tag
-        const newTag = await Tag.create({
+        // Create category
+        const newCategory = await Category.create({
             name,
             description,
         });
 
         return res.status(201).json({
             success: true,
-            message: "Tag created successfully.",
-            data: newTag,
+            message: "Category created successfully.",
+            data: newCategory,
         });
 
     } catch (error) {
@@ -43,15 +43,15 @@ exports.createTag = async (req, res) => {
 };
 
 
-// GET ALL TAGS
-exports.getAllTags = async (req, res) => {
+// GET ALL CATEGORIES
+exports.getAllCategories = async (req, res) => {
     try {
-        const allTags = await Tag.find({}, { name: 1, description: 1 });
+        const allCategories = await Category.find({}, { name: 1, description: 1 });
 
         return res.status(200).json({
             success: true,
-            message: "All tags retrieved successfully.",
-            data: allTags,
+            message: "All categories retrieved successfully.",
+            data: allCategories,
         });
 
     } catch (error) {

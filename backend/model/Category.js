@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const tagSchema = new mongoose.Schema({
+const categorySchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -11,7 +11,7 @@ const tagSchema = new mongoose.Schema({
         trim: true
     },
 
-    // A tag can be assigned to multiple courses
+    // A category can be assigned to multiple courses
     courses: [
         {
             type: mongoose.Schema.Types.ObjectId,
@@ -23,4 +23,4 @@ const tagSchema = new mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model("Tag", tagSchema);
+module.exports = mongoose.model("Category", categorySchema);
